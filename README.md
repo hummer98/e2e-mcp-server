@@ -10,6 +10,26 @@ MCP (Model Context Protocol) server for E2E testing with integrated development 
 
 **Perfect for AI agents like Claude Code to automate browser testing workflows!**
 
+## Overview
+
+E2E MCP Server solves the complexity of server management when AI agents (Claude Code, ChatGPT, Gemini, etc.) execute E2E tests. Unlike traditional Playwright MCP implementations where AI agents must manage the development server state themselves, this server delegates the server process lifecycle management to the MCP layer, allowing AI agents to focus solely on test logic.
+
+The server executes user-provided server startup commands (with dynamic port allocation and log management) and manages the returned URL and log paths as session information. All Playwright operations are exposed as MCP tools, and when errors occur, server logs and screenshots are automatically collected and provided to the AI agent.
+
+### Key Capabilities
+
+- **Automated E2E Session Management**: Complete automation from development server startup through test execution to server shutdown via MCP tool calls
+- **Playwright as MCP Tools**: Provides main Playwright functionality as MCP tools, achieving the same operability as existing Playwright MCP
+- **Automatic Debug Info Collection**: Auto-collects server logs, screenshots, and structured error details to support AI agent root cause analysis
+- **Multi-Client Support**: Accessible from multiple AI clients (Claude Code, ChatGPT, Gemini) via standard MCP protocol
+
+### Design Philosophy
+
+- **Server Command Agnostic**: User-provided server startup commands (bash, Node.js, Python, etc.) with JSON response interface
+- **Session Isolation**: One session = one development server + one browser instance, preventing state contamination
+- **AI-First Error Handling**: Structured errors with screenshots and logs for AI agent self-healing capabilities
+- **Cloud-Ready Architecture**: Stateless design suitable for Cloud Run and container environments
+
 ## Features
 
 - **Integrated Server Management**: Start, monitor, and automatically shut down development servers
