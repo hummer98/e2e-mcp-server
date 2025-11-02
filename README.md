@@ -4,6 +4,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen)](https://nodejs.org/)
 
+> [日本語版READMEはこちら](./README.ja.md) / [Japanese README](./README.ja.md)
+
 MCP (Model Context Protocol) server for E2E testing with integrated development server management and Playwright automation.
 
 **Perfect for AI agents like Claude Code to automate browser testing workflows!**
