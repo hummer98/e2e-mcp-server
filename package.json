@@ -1,0 +1,66 @@
+{
+  "name": "e2e-mcp-server",
+  "version": "1.0.0",
+  "description": "E2E Testing MCP Server with integrated development server management and Playwright automation",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "e2e-mcp-server": "./dist/mcp-server.js"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "e2e-testing",
+    "playwright",
+    "ai-agent",
+    "claude-code",
+    "browser-automation",
+    "testing",
+    "end-to-end"
+  ],
+  "author": "E2E MCP Server Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hummer98/e2e-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hummer98/e2e-mcp-server/issues"
+  },
+  "homepage": "https://github.com/hummer98/e2e-mcp-server#readme",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.20.2",
+    "express": "^4.18.2",
+    "playwright": "^1.40.0",
+    "uuid": "^9.0.1",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.11",
+    "@types/node": "^20.10.6",
+    "@types/uuid": "^9.0.7",
+    "@typescript-eslint/eslint-plugin": "^6.17.0",
+    "@typescript-eslint/parser": "^6.17.0",
+    "eslint": "^8.56.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  }
+}

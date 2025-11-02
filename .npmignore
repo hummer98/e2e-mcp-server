@@ -1,0 +1,66 @@
+# Source files
+src/
+*.ts
+!*.d.ts
+
+# Development files
+.kiro/
+.claude/
+examples/
+docs/
+
+# Test files
+**/*.test.js
+**/*.test.ts
+**/__tests__/
+**/__mocks__/
+coverage/
+jest.config.js
+
+# Build artifacts
+tsconfig.json
+tsconfig.*.json
+
+# Development configs
+.eslintrc.js
+.eslintrc.json
+.prettierrc
+.editorconfig
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+cloudbuild.yaml
+
+# Docker (optional - remove if needed)
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Misc
+.DS_Store
+.mcp.json

@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "e2e-mcp": {
+      "command": "node",
+      "args": ["dist/mcp-server.js"],
+      "cwd": "/Users/yamamoto/git/e2e-mcp"
+    }
+  }
+}

@@ -1,0 +1,70 @@
+# Google Cloud Build configuration for Cloud Run deployment
+steps:
+  # Build the Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/e2e-mcp-server:$COMMIT_SHA'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/e2e-mcp-server:latest'
+      - '.'
+
+  # Push the Docker image to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'gcr.io/$PROJECT_ID/e2e-mcp-server:$COMMIT_SHA'
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'gcr.io/$PROJECT_ID/e2e-mcp-server:latest'
+
+  # Deploy to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    args:
+      - 'gcloud'
+      - 'run'
+      - 'deploy'
+      - 'e2e-mcp-server'
+      - '--image'
+      - 'gcr.io/$PROJECT_ID/e2e-mcp-server:$COMMIT_SHA'
+      - '--platform'
+      - 'managed'
+      - '--region'
+      - '${_REGION}'
+      - '--allow-unauthenticated'
+      - '--memory'
+      - '2Gi'
+      - '--cpu'
+      - '2'
+      - '--timeout'
+      - '3600s'
+      - '--concurrency'
+      - '10'
+      - '--max-instances'
+      - '5'
+      - '--port'
+      - '3000'
+      - '--set-env-vars'
+      - 'NODE_ENV=production,LOG_LEVEL=info'
+      - '--use-http2'
+      - '--no-use-http2'
+
+# Store images in Container Registry
+images:
+  - 'gcr.io/$PROJECT_ID/e2e-mcp-server:$COMMIT_SHA'
+  - 'gcr.io/$PROJECT_ID/e2e-mcp-server:latest'
+
+# Substitution variables
+substitutions:
+  _REGION: 'us-central1'
+
+# Build timeout (20 minutes)
+timeout: '1200s'
+
+# Build options
+options:
+  machineType: 'N1_HIGHCPU_8'
+  logging: CLOUD_LOGGING_ONLY

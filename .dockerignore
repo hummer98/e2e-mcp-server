@@ -1,0 +1,45 @@
+# Node modules
+node_modules/
+npm-debug.log
+
+# TypeScript build output
+dist/
+
+# Tests
+src/**/*.test.ts
+**/__tests__/
+coverage/
+
+# Development files
+.git/
+.gitignore
+.env
+.env.local
+.env.*.local
+
+# Documentation
+*.md
+docs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Kiro spec files
+.kiro/
+
+# Claude Code
+.claude/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
